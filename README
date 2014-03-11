@@ -1,0 +1,10 @@
+you need:
+
+libzmq
+pyzmq
+
+for pb*py add:
+
+libprotobuf-dev
+protobuf-compiler
+python-protobuf

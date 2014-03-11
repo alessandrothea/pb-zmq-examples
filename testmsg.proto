@@ -1,0 +1,33 @@
+package pb;
+
+enum ValueType {
+    //  the following tags correspond to hal.h: hal_type_t;
+    HAL_BIT   = 1;
+    HAL_FLOAT = 2;
+    HAL_S32   = 3;
+    HAL_U32   = 4;
+}
+
+enum ContainerType {
+    MT_TEST1          = 1;
+    MT_TEST2          = 2;
+    MT_TEST3          = 3;
+}
+message Pin {
+    required ValueType   type = 1;
+    optional string      name = 2;
+
+    // One of the following must be filled in,
+    // depending on type.
+    optional bool          halbit   = 5;
+    optional double        halfloat = 6;
+    optional sfixed32      hals32   = 7;
+    optional fixed32       halu32   = 8;
+}
+
+message Container {
+    required ContainerType type = 1;
+    repeated string   note = 2; // error text 'lines'
+    repeated Pin      pin  = 3;
+}
+
